@@ -8,6 +8,14 @@ import spock.lang.Specification
  */
 class InPlaceCalculatorControllerSpec extends Specification implements ControllerUnitTest<InPlaceCalculatorController> {
 
+    void "average of en:5 and exam:6 should be 6"() {
+        when:
+            def model = new CalculatorModel(en: 5, exam: 6)
+            controller.calc(model)
+        then:
+            model.result == "6"
+    }
+
     void "average of #en and #exam should be #result"(en, exam, result) {
         when:
             def model = new CalculatorModel(en:en, exam:exam)
