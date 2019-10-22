@@ -16,8 +16,8 @@ class InPlaceCalculatorSpec extends GebSpec {
         title == "In-Place Calculator"
 
         when: "set valid input"
-        $("form").en = 5.0
-        $("form").exam = 6.0
+        $("form").en = "5.0" // "5,0" in non-headless mode
+        $("form").exam = "6.0" // "6,0" in non-headless mode
         $("input", type: "submit").click()
 
         then: "Result is displayed with proper rounding up"
